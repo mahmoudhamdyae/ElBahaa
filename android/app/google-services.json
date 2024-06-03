@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "992587939961",
+    "project_id": "elbahaa-18f8c",
+    "storage_bucket": "elbahaa-18f8c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992587939961:android:0417fbfdca5e2143ec54a8",
+        "android_client_info": {
+          "package_name": "com.codingsite.elbahaa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlgSg5mrj7zKqgKDGhLtg82OHlKwy3QCA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
