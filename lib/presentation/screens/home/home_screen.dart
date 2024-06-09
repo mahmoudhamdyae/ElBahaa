@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget {
             physics: const ClampingScrollPhysics(),
             children: [
               CustomGridView(HomeUI.getItems(context)),
-              _buildPackagesAndTeachers(),
+              // _buildPackagesAndTeachers(),
             ],
           );
   }
@@ -51,10 +51,10 @@ class HomeScreen extends StatelessWidget {
             child: CustomGridView(HomeUI.getItems(context)),
         ),
         const SizedBox(width: 16.0,),
-        Expanded(
-            flex: 1,
-            child: _buildPackagesAndTeachers(),
-        ),
+        // Expanded(
+        //     flex: 1,
+        //     child: _buildPackagesAndTeachers(),
+        // ),
       ],
     );
   }

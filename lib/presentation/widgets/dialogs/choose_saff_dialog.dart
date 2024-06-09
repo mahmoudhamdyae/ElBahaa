@@ -56,12 +56,10 @@ showChooseSaffDialog(
 }
 
 List<String> _getSfoof(String marhala) {
+  // todo: get from backend
   switch (marhala) {
     case AppStrings.primaryMarhala:
       return [
-        // AppStrings.saff1,
-        // AppStrings.saff2,
-        // AppStrings.saff3,
         AppStrings.saff4,
         AppStrings.saff5,
       ];
@@ -79,6 +77,9 @@ List<String> _getSfoof(String marhala) {
         AppStrings.saff12,
       ];
     default:
-      return [];
+      return [
+        AppStrings.saff4,
+        AppStrings.saff5,
+      ];
   }
 }

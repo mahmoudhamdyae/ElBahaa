@@ -48,6 +48,6 @@ String convertSaffToNum(String saff) {
     case AppStrings.saff12_2:
       return '12';
     default:
-      return '';
+      return '6'; // todo make it ''
   }
 }

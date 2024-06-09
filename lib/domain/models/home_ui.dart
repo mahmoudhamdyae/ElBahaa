@@ -11,7 +11,7 @@ import '../../presentation/resources/strings_manager.dart';
 class HomeUI {
   String name;
   String icon;
-  Function(String, String, String) action;
+  Function(String, String) action;
 
   HomeUI(this.name, this.icon, this.action);
 
@@ -19,36 +19,36 @@ class HomeUI {
     return [
       HomeUI(
         AppStrings.recordedCourses,
-        ImageAssets.home1, (String marhala, String saff, String term) =>
-          Get.to(() => const RecordedCoursesScreen(), arguments: { 'saff': saff }),
+        ImageAssets.home1, (String marhala, String term) =>
+          Get.to(() => const RecordedCoursesScreen(), arguments: { 'saff': marhala }),
       ),
       HomeUI(
         AppStrings.printedNotes,
-        ImageAssets.home2, (String marhala, String saff, String term) =>
-          Get.to(const PrintedNotesScreen(), arguments: { 'saff': saff })
+        ImageAssets.home2, (String marhala, String term) =>
+          Get.to(const PrintedNotesScreen(), arguments: { 'saff': marhala })
       ),
       HomeUI(
         AppStrings.courses,
-        ImageAssets.home3, (String marhala, String saff, String term) {
+        ImageAssets.home3, (String marhala, String term) {
           showSoonDialog(context);
         }
       ),
       HomeUI(
         AppStrings.onlineCourses,
-        ImageAssets.home4, (String marhala, String saff, String term) {
+        ImageAssets.home4, (String marhala, String term) {
         showSoonDialog(context);
         }
       ),
       HomeUI(
         AppStrings.teacher,
-        ImageAssets.home5, (String marhala, String saff, String term) async {
+        ImageAssets.home5, (String marhala, String term) async {
         showSoonDialog(context);
       }
       ),
       HomeUI(
         AppStrings.examsAndBanks,
-        ImageAssets.home6, (String marhala, String saff, String term) =>
-          Get.to(() => const ExamsCoursesScreen(), arguments: { 'saff': saff, 'term': term })
+        ImageAssets.home6, (String marhala, String term) =>
+          Get.to(() => const ExamsCoursesScreen(), arguments: { 'saff': marhala, 'term': term })
       ),
     ];
   }

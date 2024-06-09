@@ -1,4 +1,3 @@
-import 'package:elbahaa/core/utils/insets.dart';
 import 'package:elbahaa/domain/models/package.dart';
 import 'package:elbahaa/presentation/resources/strings_manager.dart';
 import 'package:elbahaa/presentation/resources/styles_manager.dart';
@@ -16,8 +15,8 @@ class NotesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return isWide(context) ? _buildTwoColumn(context)
-        :
+    return //isWide(context) ? _buildTwoColumn(context)
+        //:
     _buildOneColumn(context);
   }
 
@@ -26,7 +25,7 @@ class NotesScreen extends StatelessWidget {
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
       children: [
-        packages.isEmpty ? Container() : _buildPackages(context),
+        // packages.isEmpty ? Container() : _buildPackages(context),
         notes.isEmpty ? Container() : _buildNotes(context),
       ],
     );

@@ -28,6 +28,7 @@ class AppStrings {
   static const primaryMarhala = 'المرحلة الابتدائية';
   static const mediumMarhala = 'المرحلة المتوسطة';
   static const secondaryMarhala = 'المرحلة الثانوية';
+  static const universityMarhala = 'المرحلة الجامعية';
   static const qodoratMarhala = 'القدرات';
   static const toeflMarhala = 'TOEFL';
   static const ieltsMarhala = 'IELTS';
