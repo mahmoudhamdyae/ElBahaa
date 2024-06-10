@@ -105,7 +105,7 @@ class NotesScreen extends StatelessWidget {
             vertical: 8.0,
           ),
           crossAxisCount: 2,
-          childAspectRatio: (1 / 1.6),
+          childAspectRatio: (1.0 / 1.7),
           children: List.generate(notes.length, (index) {
             return NoteItem(note: notes[index], index: index);
           }),

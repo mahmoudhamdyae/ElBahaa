@@ -20,6 +20,7 @@ class DownloadNoteButton extends StatelessWidget {
             downloadNote(context, pdf, true);
           },
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 AppStrings.downloadNote,

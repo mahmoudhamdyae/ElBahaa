@@ -54,6 +54,16 @@ class NoteItem extends StatelessWidget {
               ],
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 4.0),
+            child: Text(
+              note.classroom.toString(),
+              style: getLargeStyle(
+                  fontWeight: FontWeight.w400,
+                  color: ColorManager.grey
+              ),
+            ),
+          ),
           DownloadNoteButton(pdf: note.pdf ?? '',),
           CartButtonNote(note: note, index: index),
         ],
