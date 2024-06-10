@@ -62,7 +62,7 @@ class ExamCourseItem extends StatelessWidget {
               top: 16.0,
               left: 50.0,
               child: Text(
-                course.teacher,
+                course.marhala,
                 style: getSmallStyle(
                   color: const Color(0xff808080),
                 ),

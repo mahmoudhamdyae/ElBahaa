@@ -7,10 +7,8 @@ import '../../../../resources/assets_manager.dart';
 import '../../../../resources/strings_manager.dart';
 import '../../../../resources/styles_manager.dart';
 import '../../../../widgets/bookmark_course.dart';
-import '../../../../widgets/buy_widget.dart';
 import '../../../../widgets/price_widget.dart';
 import '../../../course/widgets/course_screen.dart';
-import '../../../lesson/widgets/lesson_screen.dart';
 
 class RecordedCoursesItem extends StatelessWidget {
 
@@ -72,7 +70,7 @@ class RecordedCoursesItem extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      course.teacher,
+                      course.marhala,
                       style: getSmallStyle(
                         color: const Color(0xff808080),
                       ),

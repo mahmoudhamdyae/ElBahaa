@@ -38,9 +38,12 @@ class Course extends HiveObject {
       json['classroom'] as String? ?? '',
       json['type'] as String? ?? '',
       '4.3',
-      json['techer']['name'] as String? ?? '',
-      json['techer_id'] as int? ?? -1,
-      json['techer']['image'] as String? ?? '',
+      // json['techer']['name'] as String? ?? '',
+      // json['techer_id'] as int? ?? -1,
+      // json['techer']['image'] as String? ?? '',
+      "",
+      -1,
+      "",
       json['tutorial_count'] as int? ?? 0,
     );
   }

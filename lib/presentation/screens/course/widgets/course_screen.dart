@@ -212,37 +212,37 @@ class CourseScreen extends StatelessWidget {
           child: Divider(height: 1, color: Color(0xffF2F2F2),),
         ),
         // المدرس
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Text(
-            AppStrings.courseTeacher,
-            style: getLargeStyle(),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-          child: Row(
-            children: [
-              subject.teacherImage == '' ? Image.asset(
-                ImageAssets.courseTeacher,
-                height: 50,
-                width: 50,
-              ) : Image.network(
-                '${Constants.siteUrl}${subject.teacherImage}',
-                height: 50,
-                width: 50,
-              ),
-              // Teacher Name
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  subject.teacher,
-                  style: getSmallStyle(),
-                ),
-              ),
-            ],
-          ),
-        ),
+        // Padding(
+        //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        //   child: Text(
+        //     AppStrings.courseTeacher,
+        //     style: getLargeStyle(),
+        //   ),
+        // ),
+        // Padding(
+        //   padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+        //   child: Row(
+        //     children: [
+        //       subject.teacherImage == '' ? Image.asset(
+        //         ImageAssets.courseTeacher,
+        //         height: 50,
+        //         width: 50,
+        //       ) : Image.network(
+        //         '${Constants.siteUrl}${subject.teacherImage}',
+        //         height: 50,
+        //         width: 50,
+        //       ),
+        //       // Teacher Name
+        //       Padding(
+        //         padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        //         child: Text(
+        //           subject.teacher,
+        //           style: getSmallStyle(),
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ],
     );
   }
