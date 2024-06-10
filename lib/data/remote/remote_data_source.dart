@@ -175,15 +175,9 @@ class RemoteDataSourceImpl extends RemoteDataSource {
 
     List<Note> notes = [];
     List<Package> packages = [];
-    for (var singleNote in response.data['package']) {
-      Package package = Package.fromJson(singleNote);
-      packages.add(package);
-    }
-
-    for (var singlePackage in packages) {
-      singlePackage.book?.forEach((singleBook) {
-        notes.add(singleBook);
-      });
+    for (var singleNote in response.data['books']) {
+      Note note = Note.fromJson(singleNote);
+      notes.add(note);
     }
 
     return Pair(notes, packages);
