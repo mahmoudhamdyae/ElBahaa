@@ -229,28 +229,16 @@ class RemoteDataSourceImpl extends RemoteDataSource {
     for (var element in notes) {
       items.add({
         'book_id': element.id,
-        'package_id': null,
         'quantity': count[count1],
         'price': element.bookPrice,
       });
       count1++;
     }
     count1 = 0;
-    for (var element in packages) {
-      items.add({
-        'book_id': null,
-        'package_id': element.id,
-        'quantity': countPackage[count1],
-        'price': element.price,
-      });
-      count1++;
-    }
 
     var body = {
       'buyer': userName,
       'phone': phone,
-      'address': address,
-      'city_id': cityId,
       'items': items,
     };
 

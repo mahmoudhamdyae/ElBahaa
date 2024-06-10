@@ -29,10 +29,10 @@ class _FinishOrderScreenState extends State<FinishOrderScreen> {
       formData.save();
       final PrintedNotesController controller = Get.find<PrintedNotesController>();
 
-      if (controller.selectedArea.value == controller.areas.first) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text(AppStrings.areaInvalid)));
-        return;
-      }
+      // if (controller.selectedArea.value == controller.areas.first) {
+      //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text(AppStrings.areaInvalid)));
+      //   return;
+      // }
 
       showLoading(context);
       await controller.order().then((value) {
@@ -57,134 +57,80 @@ class _FinishOrderScreenState extends State<FinishOrderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return GetX<PrintedNotesController>(
-      builder: (PrintedNotesController controller) {
-        return  Form(
-            key: formState,
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const SizedBox(height: 16.0,),
-                  // User Name Edit Text
-                  TextFormField(
-                    controller: controller.userName,
-                    textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.text,
-                    validator: (val) {
-                      if (val == null || val.isEmpty) {
-                        return AppStrings.userNameInvalid;
-                      }
-                      return null;
-                    },
-                    style: getLargeStyle(
-                      fontSize: FontSize.s14,
-                      color: ColorManager.grey,
-                    ),
-                    decoration: getTextFieldDecoration(
-                      hint: AppStrings.usernameHint,
-                      prefixIcon: null,
-                      onPressed: () { },
-                      suffixIcon: Icons.person_outline_outlined,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: AppSize.s28,
-                  ),
-                  // Phone Number Edit Text
-                  TextFormField(
-                    controller: controller.phone,
-                    textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.phone,
-                    validator: (val) {
-                      if (val.toString().isNotEmpty) {
-                        return null;
-                      }
-                      return AppStrings.mobileNumberInvalid;
-                    },
-                    style: getLargeStyle(
-                      fontSize: FontSize.s14,
-                      color: ColorManager.grey,
-                    ),
-                    decoration: getTextFieldDecoration(
-                      hint: AppStrings.phoneHint,
-                      prefixIcon: null,
-                      onPressed: () {},
-                      suffixIcon: Icons.phone_android,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: AppSize.s28,
-                  ),
-                  // Area Drop Down
-                  DropdownButtonFormField(
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.only(right: 8.0, left: 8.0),
-                    ),
-                    isExpanded: true,
-                    value: controller.areas.first,
-                    onChanged: (newValue) {
-                      controller.chooseArea(newValue!);
-                    },
-                    style: getLargeStyle(
-                      fontSize: FontSize.s14,
-                      color: ColorManager.grey,
-                    ),
-                    items: controller.areas.map((oneArea) {
-                      return DropdownMenuItem(
-                        value: oneArea,
-                        child: Text(oneArea),
-                      );
-                    }).toList(),
-                  ),
-                  const SizedBox(
-                    height: AppSize.s28,
-                  ),
-                  // Address Edit Text
-                  TextFormField(
-                    controller: controller.address,
-                    textInputAction: TextInputAction.done,
-                    keyboardType: TextInputType.text,
-                    validator: (val) {
-                      if (val.toString().isNotEmpty) {
-                        return null;
-                      }
-                      return AppStrings.addressInvalid;
-                    },
-                    style: getLargeStyle(
-                      fontSize: FontSize.s14,
-                      color: ColorManager.grey,
-                    ),
-                    decoration: getTextFieldDecoration(
-                      hint: AppStrings.addressHint,
-                      prefixIcon: null,
-                      onPressed: () {},
-                      suffixIcon: Icons.location_on,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: AppSize.s28,
-                  ),
-                  // Register Button
-                  SizedBox(
-                    width: double.infinity,
-                    height: AppSize.s40,
-                    child: FilledButton(
-                      style: getFilledButtonStyle(),
-                      onPressed: () async {
-                        await _order();
-                      },
-                      child: const Text(
-                        AppStrings.confirmOrder,
-                      ),
-                    ),
-                  ),
-                ],
+    return Form(
+        key: formState,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 16.0,),
+              // User Name Edit Text
+              TextFormField(
+                controller: Get.find<PrintedNotesController>().userName,
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.text,
+                validator: (val) {
+                  if (val == null || val.isEmpty) {
+                    return AppStrings.userNameInvalid;
+                  }
+                  return null;
+                },
+                style: getLargeStyle(
+                  fontSize: FontSize.s14,
+                  color: ColorManager.grey,
+                ),
+                decoration: getTextFieldDecoration(
+                  hint: AppStrings.usernameHint,
+                  prefixIcon: null,
+                  onPressed: () { },
+                  suffixIcon: Icons.person_outline_outlined,
+                ),
               ),
-            )
-        );
-      },
+              const SizedBox(
+                height: AppSize.s28,
+              ),
+              // Phone Number Edit Text
+              TextFormField(
+                controller: Get.find<PrintedNotesController>().phone,
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.phone,
+                validator: (val) {
+                  if (val.toString().isNotEmpty) {
+                    return null;
+                  }
+                  return AppStrings.mobileNumberInvalid;
+                },
+                style: getLargeStyle(
+                  fontSize: FontSize.s14,
+                  color: ColorManager.grey,
+                ),
+                decoration: getTextFieldDecoration(
+                  hint: AppStrings.phoneHint,
+                  prefixIcon: null,
+                  onPressed: () {},
+                  suffixIcon: Icons.phone_android,
+                ),
+              ),
+              const SizedBox(
+                height: AppSize.s28,
+              ),
+              // Register Button
+              SizedBox(
+                width: double.infinity,
+                height: AppSize.s40,
+                child: FilledButton(
+                  style: getFilledButtonStyle(),
+                  onPressed: () async {
+                    await _order();
+                  },
+                  child: const Text(
+                    AppStrings.confirmOrder,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        )
     );
   }
 }
