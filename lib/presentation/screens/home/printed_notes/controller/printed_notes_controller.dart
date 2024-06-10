@@ -45,12 +45,12 @@ class PrintedNotesController extends GetxController {
   }
 
   void _getCities() {
-    _repository.getCities().then((remoteCities) {
-      cities.value = remoteCities;
-      for (var element in remoteCities) {
-        areas.add(element.name ?? '');
-      }
-    });
+    // _repository.getCities().then((remoteCities) {
+    //   cities.value = remoteCities;
+    //   for (var element in remoteCities) {
+    //     areas.add(element.name ?? '');
+    //   }
+    // });
   }
 
   getNotes(String saff) async {

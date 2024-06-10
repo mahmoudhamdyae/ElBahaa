@@ -193,7 +193,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
     String url = "${Constants.baseUrl}getBooksAndPackage";
     var body = {
       'book_ids': notesId,
-      'package_ids': packagesId,
+      // 'package_ids': packagesId,
     };
     final response = await _dio.get(url, data: jsonEncode(body));
 
