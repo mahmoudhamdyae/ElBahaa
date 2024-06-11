@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
@@ -14,6 +15,7 @@ import 'package:pair/pair.dart';
 import '../../core/constants.dart';
 import '../../domain/models/courses/class_model.dart';
 
+import '../../domain/models/grades.dart';
 import '../../domain/models/lesson/lesson.dart';
 import '../../domain/models/package.dart';
 import '../../domain/models/subscription_response.dart';
@@ -21,6 +23,7 @@ import '../../domain/models/teacher.dart';
 import '../network_info.dart';
 
 abstract class RemoteDataSource {
+  Future<Grades> getGrades();
   Future register(String userName, String phone, String password, String grade,
       String group);
   Future<dynamic> logIn(String phone, String password);
@@ -59,6 +62,14 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   RemoteDataSourceImpl(this._networkInfo, this._dio);
 
   @override
+  Future<Grades> getGrades() async {
+    await _checkNetwork();
+    String url = "${Constants.baseUrl}auth/register";
+    Response response = await _dio.get(url);
+    return Grades.fromJson(response.data);
+  }
+
+  @override
   Future register(String userName, String phone, String password, String grade,
       String group) async {
     await _checkNetwork();
@@ -67,7 +78,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       'name': userName,
       'password': password,
       'phone': phone,
-      'grade': grade,
+      'grade': grade == AppStrings.secondaryMarhala ? 'الثانويه' : 'الجامعيه',
       'group': group,
     });
 

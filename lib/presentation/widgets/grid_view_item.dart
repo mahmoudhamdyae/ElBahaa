@@ -32,10 +32,9 @@ class GridViewItem extends StatelessWidget {
             });
           } else if (_item.name == AppStrings.examsAndBanks) {
             showChooseMarhalaDialog(context, true, (marhala) {
-              // showChooseTermDialog(context, saff, (String term) {
-              //   _item.action(marhala, saff, term);
-                _item.action(marhala, '2');
-              // });
+              showChooseTermDialog(context, marhala, (String term) {
+                _item.action(marhala, term);
+              });
             });
           } else {
             _item.action('', '');

@@ -6,6 +6,7 @@ import 'package:pair/pair.dart';
 import '../models/city.dart';
 import '../models/courses/class_model.dart';
 import '../models/exam.dart';
+import '../models/grades.dart';
 import '../models/lesson/lesson.dart';
 import '../models/notes/note.dart';
 import '../models/package.dart';
@@ -37,6 +38,7 @@ abstract class Repository {
   bool isPackageInCart(String packageId);
 
   // Account Service
+  Future<Grades> getGrades();
   Future<void> register(String userName, String phone, String password, String grade, String group);
   Future<void> logIn(String phone, String password);
   Future<void> signOut();

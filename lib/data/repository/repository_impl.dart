@@ -10,6 +10,7 @@ import 'package:pair/pair.dart';
 
 import '../../domain/models/courses/class_model.dart';
 import '../../domain/models/exam.dart';
+import '../../domain/models/grades.dart';
 import '../../domain/models/lesson/lesson.dart';
 import '../../domain/models/package.dart';
 import '../local/local_data_source.dart';
@@ -124,6 +125,11 @@ class RepositoryImpl extends Repository {
       _localDataSource.setUserLoggedIn();
       _remoteDataSource.sendTokenAndUserId(_localDataSource.getUserId());
     });
+  }
+
+  @override
+  Future<Grades> getGrades() async {
+    return await _remoteDataSource.getGrades();
   }
 
   @override
