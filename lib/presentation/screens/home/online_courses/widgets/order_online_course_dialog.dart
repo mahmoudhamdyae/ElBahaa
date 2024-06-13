@@ -12,13 +12,16 @@ import '../../../../widgets/dialogs/error_dialog.dart';
 import '../../../../widgets/dialogs/loading_dialog.dart';
 
 class OrderOnlineCourseDialog extends StatefulWidget {
-  const OrderOnlineCourseDialog({super.key});
+
+  final String? restorationId;
+  const OrderOnlineCourseDialog({super.key, this.restorationId});
 
   @override
   State<OrderOnlineCourseDialog> createState() => _OrderOnlineCourseDialogState();
 }
 
-class _OrderOnlineCourseDialogState extends State<OrderOnlineCourseDialog> {
+class _OrderOnlineCourseDialogState extends State<OrderOnlineCourseDialog>
+    with RestorationMixin {
 
   GlobalKey<FormState> formState = GlobalKey<FormState>();
 
@@ -51,6 +54,57 @@ class _OrderOnlineCourseDialogState extends State<OrderOnlineCourseDialog> {
   }
 
   @override
+  String? get restorationId => widget.restorationId;
+
+  final RestorableDateTime _selectedDate =
+  RestorableDateTime(DateTime.now());
+  late final RestorableRouteFuture<DateTime?> _restorableDatePickerRouteFuture =
+  RestorableRouteFuture<DateTime?>(
+    onComplete: _selectDate,
+    onPresent: (NavigatorState navigator, Object? arguments) {
+      return navigator.restorablePush(
+        _datePickerRoute,
+        arguments: _selectedDate.value.millisecondsSinceEpoch,
+      );
+    },
+  );
+
+  @pragma('vm:entry-point')
+  static Route<DateTime> _datePickerRoute(
+      BuildContext context,
+      Object? arguments,
+      ) {
+    return DialogRoute<DateTime>(
+      context: context,
+      builder: (BuildContext context) {
+        return DatePickerDialog(
+          restorationId: 'date_picker_dialog',
+          initialEntryMode: DatePickerEntryMode.calendarOnly,
+          initialDate: DateTime.fromMillisecondsSinceEpoch(arguments! as int),
+          firstDate: DateTime.now(),
+          lastDate: DateTime(DateTime.now().year + 2),
+        );
+      },
+    );
+  }
+
+  @override
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
+    registerForRestoration(_selectedDate, 'selected_date');
+    registerForRestoration(
+        _restorableDatePickerRouteFuture, 'date_picker_route_future');
+  }
+
+  void _selectDate(DateTime? newSelectedDate) {
+    if (newSelectedDate != null) {
+      setState(() {
+        _selectedDate.value = newSelectedDate;
+        Get.find<OnlineCoursesController>().date.text = '${_selectedDate.value.day}/${_selectedDate.value.month}/${_selectedDate.value.year}';
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Form(
         key: formState,
@@ -59,11 +113,14 @@ class _OrderOnlineCourseDialogState extends State<OrderOnlineCourseDialog> {
             mainAxisSize: MainAxisSize.min,
             children: [
               const SizedBox(height: 16.0,),
-              // Date Edit Text // todo
+              // Date Edit Text
               TextFormField(
                 controller: Get.find<OnlineCoursesController>().date,
                 textInputAction: TextInputAction.next,
-                keyboardType: TextInputType.text,
+                keyboardType: null,
+                onTap: () {
+                  _restorableDatePickerRouteFuture.present();
+                },
                 validator: (val) {
                   if (val == null || val.isEmpty) {
                     return AppStrings.dateInvalid;
