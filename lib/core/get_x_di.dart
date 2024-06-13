@@ -8,6 +8,7 @@ import 'package:elbahaa/presentation/screens/auth/register/controller/register_c
 import 'package:elbahaa/presentation/screens/fav/controller/fav_controller.dart';
 import 'package:elbahaa/presentation/screens/home/controller/home_controller.dart';
 import 'package:elbahaa/presentation/screens/home/exams/controller/exams_controller.dart';
+import 'package:elbahaa/presentation/screens/home/online_courses/controller/online_courses_controller.dart';
 import 'package:elbahaa/presentation/screens/home/printed_notes/controller/printed_notes_controller.dart';
 import 'package:elbahaa/presentation/screens/me/controller/me_controller.dart';
 import 'package:elbahaa/presentation/screens/onboarding/controller/onboarding_controller.dart';
@@ -67,6 +68,7 @@ class GetXDi implements Bindings {
     Get.lazyPut<HomeController>(() => HomeController(Get.find<Repository>()), fenix: true);
     Get.lazyPut<ExamsController>(() => ExamsController(Get.find<Repository>()), fenix: true);
     Get.lazyPut<MeController>(() => MeController(Get.find<Repository>()), fenix: true);
+    Get.lazyPut<OnlineCoursesController>(() => OnlineCoursesController(Get.find<Repository>()), fenix: true);
     // Get.lazyPut<UpdateProfileController>(() => UpdateProfileController(Get.find<Repository>()), fenix: true);
   }
 }
