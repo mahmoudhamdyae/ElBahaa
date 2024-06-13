@@ -1,10 +1,12 @@
 import 'package:elbahaa/presentation/resources/color_manager.dart';
 import 'package:elbahaa/presentation/screens/home/online_courses/controller/online_courses_controller.dart';
 import 'package:elbahaa/presentation/screens/home/online_courses/widgets/online_courses_list.dart';
+import 'package:elbahaa/presentation/screens/home/online_courses/widgets/order_online_course_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../resources/strings_manager.dart';
+import '../../../../resources/styles_manager.dart';
 import '../../../../widgets/empty_screen.dart';
 import '../../../../widgets/error_screen.dart';
 import '../../../../widgets/loading_screen.dart';
@@ -18,7 +20,18 @@ class OnlineCoursesScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // todo: add order
+          showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  backgroundColor: ColorManager.white,
+                  title: Text(
+                    AppStrings.onlineCoursesDialogTitle,
+                    style: getLargeStyle(),
+                  ),
+                  content: const OrderOnlineCourseDialog(),
+                );
+              });
         },
         backgroundColor: ColorManager.secondary,
         shape: const CircleBorder(),

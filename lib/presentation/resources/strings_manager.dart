@@ -251,4 +251,16 @@ class AppStrings {
   static const updateProfileButton = 'تعديل البيانات الشخصية';
 
   static const requireLog = 'يجب عليك تسجيل الدخول أولا';
+
+  // Online Courses Screen
+  static const onlineCoursesDialogTitle = 'طلب';
+  static const dateHint = 'date';
+  static const timeHint = 'time';
+  static const minuteHint = 'minute';
+  static const descHint = 'desc';
+  static const String dateInvalid = 'هذا الحقل لا يمكن أن يكون فارغا';
+  static const String timeInvalid = 'هذا الحقل لا يمكن أن يكون فارغا';
+  static const String minuteInvalid = 'هذا الحقل لا يمكن أن يكون فارغا';
+  static const String descInvalid = 'هذا الحقل لا يمكن أن يكون فارغا';
+  static const orderButton = 'طلب';
 }

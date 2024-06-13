@@ -29,11 +29,6 @@ class _FinishOrderScreenState extends State<FinishOrderScreen> {
       formData.save();
       final PrintedNotesController controller = Get.find<PrintedNotesController>();
 
-      // if (controller.selectedArea.value == controller.areas.first) {
-      //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text(AppStrings.areaInvalid)));
-      //   return;
-      // }
-
       showLoading(context);
       await controller.order().then((value) {
         showLoading(context);

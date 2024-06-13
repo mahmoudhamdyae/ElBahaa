@@ -1,10 +1,15 @@
 import 'package:elbahaa/domain/models/online_courses.dart';
 import 'package:elbahaa/domain/repository/repository.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class OnlineCoursesController extends GetxController {
 
   final RxList<OnlineCourses> onlineCourses = RxList.empty();
+  final TextEditingController date = TextEditingController();
+  final TextEditingController time = TextEditingController();
+  final TextEditingController minute = TextEditingController();
+  final TextEditingController desc = TextEditingController();
 
   final Rx<RxStatus> _getStatus = Rx<RxStatus>(RxStatus.empty());
   RxStatus get getStatus => _getStatus.value;
@@ -18,10 +23,19 @@ class OnlineCoursesController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    _getOnlineCourses();
+    getOnlineCourses();
   }
 
-  void _getOnlineCourses() {
+  @override
+  void dispose() {
+    super.dispose();
+    date.clear();
+    time.clear();
+    minute.clear();
+    desc.clear();
+  }
+
+  void getOnlineCourses() {
     _getStatus.value = RxStatus.loading();
     try {
       // _repository.getOnlineCourses().then((remoteOnlineCourses) {
@@ -33,10 +47,10 @@ class OnlineCoursesController extends GetxController {
     }
   }
 
-  void orderOnlineCourse() {
+  Future<void> orderOnlineCourse() async {
     _postStatus.value = RxStatus.loading();
     try {
-      // _repository.orderOnlineCourse().then((remoteOnlineCourses) {
+      // await _repository.orderOnlineCourse().then((remoteOnlineCourses) {
         _postStatus.value = RxStatus.success();
       // });
     } on Exception catch (e) {
