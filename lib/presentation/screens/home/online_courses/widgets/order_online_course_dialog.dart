@@ -104,6 +104,21 @@ class _OrderOnlineCourseDialogState extends State<OrderOnlineCourseDialog>
     }
   }
 
+  TimeOfDay selectedTime = TimeOfDay.now();
+
+  Future<void> _selectTime(BuildContext context) async {
+    final TimeOfDay? pickedTime = await showTimePicker(
+        context: context,
+        initialTime: selectedTime);
+
+    if (pickedTime != null && pickedTime != selectedTime ) {
+      setState(() {
+        selectedTime = pickedTime;
+        Get.find<OnlineCoursesController>().time.text = '${selectedTime.hour}:${selectedTime.minute}';
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -117,7 +132,7 @@ class _OrderOnlineCourseDialogState extends State<OrderOnlineCourseDialog>
               TextFormField(
                 controller: Get.find<OnlineCoursesController>().date,
                 textInputAction: TextInputAction.next,
-                keyboardType: null,
+                keyboardType: TextInputType.datetime,
                 onTap: () {
                   _restorableDatePickerRouteFuture.present();
                 },
@@ -144,7 +159,8 @@ class _OrderOnlineCourseDialogState extends State<OrderOnlineCourseDialog>
               TextFormField(
                 controller: Get.find<OnlineCoursesController>().time,
                 textInputAction: TextInputAction.next,
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.text,
+                onTap: () => _selectTime(context),
                 validator: (val) {
                   if (val.toString().isNotEmpty) {
                     return null;
@@ -192,7 +208,7 @@ class _OrderOnlineCourseDialogState extends State<OrderOnlineCourseDialog>
               TextFormField(
                 controller: Get.find<OnlineCoursesController>().desc,
                 textInputAction: TextInputAction.done,
-                keyboardType: TextInputType.text,
+                keyboardType: TextInputType.multiline,
                 validator: (val) {
                   if (val.toString().isNotEmpty) {
                     return null;
