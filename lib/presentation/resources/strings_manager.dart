@@ -101,6 +101,9 @@ class AppStrings {
   static const String pleaseChooseMarhala = 'برجاء اختيار المرحلة';
   // Require Auth Dialog
   static const String pleaseSubscribe = 'لاتمام العملية برجاء الاشتراك';
+  // Require Login Dialog
+  static const String pleaseLoginDialog = 'من فضلك قم بتسجيل الدخول';
+  static const String loginButtonDialog = 'تسجيل الدخول';
 
   // Recorded Courses
   static const String recordedCoursesTitleBar = 'مواد';

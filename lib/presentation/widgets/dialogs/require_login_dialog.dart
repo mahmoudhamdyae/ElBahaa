@@ -1,14 +1,13 @@
-import 'package:elbahaa/core/purchases.dart';
-import 'package:elbahaa/domain/models/courses/course.dart';
 import 'package:elbahaa/presentation/resources/color_manager.dart';
 import 'package:elbahaa/presentation/resources/strings_manager.dart';
+import 'package:elbahaa/presentation/screens/auth/login/widgets/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../resources/styles_manager.dart';
 import '../../resources/values_manager.dart';
 
-showRequireAuthDialog(BuildContext context, Course course) {
+showRequireLoginDialog(BuildContext context) {
   return showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -21,14 +20,14 @@ showRequireAuthDialog(BuildContext context, Course course) {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                AppStrings.pleaseSubscribe,
+                AppStrings.pleaseLoginDialog,
                 style: getLargeStyle(),
               ),
               const SizedBox(height: AppSize.s16,),
               Row(
                 children: [
                   OutlinedButton(
-                    style: getOutlinedButtonStyle(),
+                      style: getOutlinedButtonStyle(),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
@@ -37,26 +36,14 @@ showRequireAuthDialog(BuildContext context, Course course) {
                         style: getSmallStyle(),
                       )
                   ),
-                  TextButton(
-                      onPressed: () {
-                        Get.back();
-                        purchase(context, course, true);
-                      },
-                      child: Text(
-                        AppStrings.subscribeMonth,
-                        style: getSmallStyle(
-                          color: ColorManager.secondary
-                        ),
-                      )
-                  ),
                   const SizedBox(width: 4.0,),
                   TextButton(
                       onPressed: () {
                         Get.back();
-                        purchase(context, course, false);
+                        Get.to(const LoginScreen());
                       },
                       child: Text(
-                        AppStrings.subscribeTerm,
+                        AppStrings.loginButtonDialog,
                         style: getSmallStyle(
                             color: ColorManager.secondary
                         ),
