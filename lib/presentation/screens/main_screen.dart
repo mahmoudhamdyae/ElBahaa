@@ -1,5 +1,4 @@
 import 'package:elbahaa/presentation/resources/assets_manager.dart';
-import 'package:elbahaa/presentation/resources/color_manager.dart';
 import 'package:elbahaa/presentation/screens/fav/widgets/fav_screen.dart';
 import 'package:elbahaa/presentation/screens/me/widgets/me_screen.dart';
 import 'package:elbahaa/presentation/screens/subscription/widgets/subscription_screen.dart';
