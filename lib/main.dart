@@ -27,7 +27,7 @@ void main() async {
   );
   if (GetPlatform.isIOS) {
     await Purchases.configure(_configuration);
-  };
+  }
   await LocalNotificationService().init();
   requestPermissions();
   _listenForForegroundFCM();
