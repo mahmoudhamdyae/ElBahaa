@@ -23,9 +23,7 @@ class MeScreen extends StatelessWidget {
           icon: ImageAssets.editProfile,
           title: AppStrings.editProfile,
           action: () {
-            // todo uncomment this
             showSoonDialog(context);
-            // Get.to(() => const UpdateProfileScreen());
           },
         ),
         MeItem(

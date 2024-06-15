@@ -41,6 +41,7 @@ class MeScreenBody extends StatelessWidget {
             const UserImage(),
             const SizedBox(width: 8.0,),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   Get.find<AuthController>().getUserName(),
