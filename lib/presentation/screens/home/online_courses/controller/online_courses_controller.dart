@@ -41,10 +41,10 @@ class OnlineCoursesController extends GetxController {
   void getOnlineCourses() {
     _getStatus.value = RxStatus.loading();
     try {
-      // _repository.getOnlineCourses().then((remoteOnlineCourses) {
+      _repository.getOnlineCourses().then((remoteOnlineCourses) {
         _getStatus.value = RxStatus.success();
-        // onlineCourses.value = remoteOnlineCourses;
-      // });
+        onlineCourses.value = remoteOnlineCourses;
+      });
     } on Exception catch (e) {
       _getStatus.value = RxStatus.error(e.toString());
     }
@@ -53,20 +53,25 @@ class OnlineCoursesController extends GetxController {
   Future<void> orderOnlineCourse() async {
     _postStatus.value = RxStatus.loading();
     try {
-      // await _repository.orderOnlineCourse().then((value) {
+      await _repository.createOnlineCourse(
+          date.text,
+          time.text,
+          minute.text,
+          desc.text
+      ).then((value) {
         _postStatus.value = RxStatus.success();
-      // });
+      });
     } on Exception catch (e) {
       _postStatus.value = RxStatus.error(e.toString());
     }
   }
 
-  Future<void> delOnlineCourse() async {
+  Future<void> delOnlineCourse(int orderId) async {
     _delStatus.value = RxStatus.loading();
     try {
-      // await _repository.delOnlineCourse().then((value) {
+      await _repository.cancelOrder(orderId).then((value) {
       _delStatus.value = RxStatus.success();
-      // });
+      });
     } on Exception catch (e) {
       _delStatus.value = RxStatus.error(e.toString());
     }

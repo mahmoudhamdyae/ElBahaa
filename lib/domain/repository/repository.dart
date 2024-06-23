@@ -9,6 +9,7 @@ import '../models/exam.dart';
 import '../models/grades.dart';
 import '../models/lesson/lesson.dart';
 import '../models/notes/note.dart';
+import '../models/online_courses.dart';
 import '../models/package.dart';
 import '../models/teacher.dart';
 
@@ -57,4 +58,13 @@ abstract class Repository {
   Future<Exam> getExamsAndCourses(int courseId, int term);
   Future<void> pay(int courseId);
   Future<void> delAccount();
+
+  Future<List<OnlineCourses>> getOnlineCourses();
+  Future<void> createOnlineCourse(
+      String date,
+      String time,
+      String min,
+      String desc
+      );
+  Future<void> cancelOrder(int orderId);
 }

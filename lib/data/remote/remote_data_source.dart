@@ -8,6 +8,7 @@ import 'package:elbahaa/domain/models/courses/course.dart';
 import 'package:elbahaa/domain/models/exam.dart';
 import 'package:elbahaa/domain/models/lesson/wehda.dart';
 import 'package:elbahaa/domain/models/notes/note.dart';
+import 'package:elbahaa/domain/models/online_courses.dart';
 import 'package:elbahaa/presentation/resources/strings_manager.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:pair/pair.dart';
@@ -54,6 +55,16 @@ abstract class RemoteDataSource {
   Future<Exam> getExamsAndCourses(int courseId, int term);
   Future<void> pay(int courseId, int userId);
   Future<void> delAccount(int userId);
+
+  Future<List<OnlineCourses>> getOnlineCourses(int userId);
+  Future<void> createOnlineCourse(
+      String date,
+      String time,
+      String min,
+      String desc,
+      int userId,
+      );
+  Future<void> cancelOrder(int userId, int orderId);
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -350,5 +361,31 @@ class RemoteDataSourceImpl extends RemoteDataSource {
     await _checkNetwork();
 
     await Future.delayed(const Duration(milliseconds: 1500));
+  }
+
+  @override
+  Future<List<OnlineCourses>> getOnlineCourses(int userId) async {
+    await _checkNetwork();
+
+    String url = "${Constants.baseUrl}online_courses/get/$userId";
+    var response = await _dio.get(url);
+    List<OnlineCourses> onlineCourses = OnlineCoursesResponse.fromJson(response.data).courses ?? [];
+    return onlineCourses;
+  }
+
+  @override
+  Future<void> cancelOrder(int userId, int orderId) async {
+    await _checkNetwork();
+
+    String url = "${Constants.baseUrl}online_courses/cancel/$orderId/$userId";
+    await _dio.post(url);
+  }
+
+  @override
+  Future<void> createOnlineCourse(String date, String time, String min, String desc, int userId) async {
+    await _checkNetwork();
+
+    String url = "${Constants.baseUrl}online_courses/create/$userId";
+    await _dio.post(url);
   }
 }

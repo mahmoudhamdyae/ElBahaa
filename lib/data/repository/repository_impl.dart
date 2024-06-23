@@ -3,6 +3,7 @@ import 'package:elbahaa/domain/models/city.dart';
 import 'package:elbahaa/domain/models/courses/course.dart';
 import 'package:elbahaa/domain/models/lesson/wehda.dart';
 import 'package:elbahaa/domain/models/notes/note.dart';
+import 'package:elbahaa/domain/models/online_courses.dart';
 import 'package:elbahaa/domain/models/subscription_response.dart';
 import 'package:elbahaa/domain/models/teacher.dart';
 import 'package:elbahaa/domain/repository/repository.dart';
@@ -214,5 +215,20 @@ class RepositoryImpl extends Repository {
     return await _remoteDataSource.delAccount(_localDataSource.getUserId()).then((value) {
       signOut();
     });
+  }
+
+  @override
+  Future<void> cancelOrder(int orderId) async {
+    return await _remoteDataSource.cancelOrder(_localDataSource.getUserId(), orderId);
+  }
+
+  @override
+  Future<void> createOnlineCourse(String date, String time, String min, String desc) async {
+    return await _remoteDataSource.createOnlineCourse(date, time, min, desc, _localDataSource.getUserId());
+  }
+
+  @override
+  Future<List<OnlineCourses>> getOnlineCourses() async {
+    return await _remoteDataSource.getOnlineCourses(_localDataSource.getUserId());
   }
 }
