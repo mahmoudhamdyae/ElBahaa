@@ -1,3 +1,4 @@
+import 'package:elbahaa/presentation/screens/home/online_courses/widgets/online_course_item.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../domain/models/online_courses.dart';
@@ -9,6 +10,12 @@ class OnlineCoursesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const ClampingScrollPhysics(),
+      itemBuilder: (BuildContext context, int index) {
+        return OnlineCourseItem(onlineCourse: onlineCourses[index]);
+      },
+    );
   }
 }

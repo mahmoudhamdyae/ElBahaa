@@ -69,6 +69,7 @@ class AppStrings {
   static const errorDialogTitle = 'خطأ!';
   static const serverDown = 'لا يمكن الاتصال بالسيرفر!';
   static const successDialogTitle = 'عملية ناجحة';
+  static const failDialogTitle = 'حدث خطأ';
   static const goToSite = 'لإكمال العملية يرجى زيارة الموقع';
   static const successDialogAction = 'حسنا';
   static const soonDialogTitle = 'هذه الخدمة ستتوفر قريبا';
