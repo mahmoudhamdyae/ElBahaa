@@ -254,10 +254,10 @@ class AppStrings {
 
   // Online Courses Screen
   static const onlineCoursesDialogTitle = 'طلب';
-  static const dateHint = 'date';
-  static const timeHint = 'time';
-  static const minuteHint = 'minute';
-  static const descHint = 'desc';
+  static const dateHint = 'التاريخ';
+  static const timeHint = 'الوقت';
+  static const minuteHint = 'عدد الدقائق';
+  static const descHint = 'الوصف';
   static const String dateInvalid = 'هذا الحقل لا يمكن أن يكون فارغا';
   static const String timeInvalid = 'هذا الحقل لا يمكن أن يكون فارغا';
   static const String minuteInvalid = 'هذا الحقل لا يمكن أن يكون فارغا';

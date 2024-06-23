@@ -210,10 +210,7 @@ class _OrderOnlineCourseDialogState extends State<OrderOnlineCourseDialog>
                 textInputAction: TextInputAction.done,
                 keyboardType: TextInputType.multiline,
                 validator: (val) {
-                  if (val.toString().isNotEmpty) {
-                    return null;
-                  }
-                  return AppStrings.descInvalid;
+                  return null;
                 },
                 style: getLargeStyle(
                   fontSize: FontSize.s14,
