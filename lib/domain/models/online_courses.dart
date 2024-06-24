@@ -1,3 +1,5 @@
+import 'package:elbahaa/presentation/resources/strings_manager.dart';
+
 class OnlineCoursesResponse {
   String? status;
   List<OnlineCourses>? courses;
@@ -44,7 +46,7 @@ class OnlineCourses {
     time = json['time'];
     minute = json['minute'];
     description = json['description'];
-    status = json['status'];
+    status = json['status'] == '1' ? AppStrings.orderInProgress : json['status'] == '2' ? AppStrings.orderRejected : AppStrings.orderAccepted;
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
   }

@@ -264,4 +264,8 @@ class AppStrings {
   static const String minuteInvalid = 'هذا الحقل لا يمكن أن يكون فارغا';
   static const String descInvalid = 'هذا الحقل لا يمكن أن يكون فارغا';
   static const orderButton = 'طلب';
+  static const orderStatus = 'حالة الطلب';
+  static const orderInProgress = 'فى انتظار الموافقة';
+  static const orderRejected = 'تم رفض الطلب';
+  static const orderAccepted = 'تم قبول الطلب';
 }

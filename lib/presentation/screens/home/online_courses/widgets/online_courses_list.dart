@@ -13,6 +13,7 @@ class OnlineCoursesList extends StatelessWidget {
     return ListView.builder(
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
+      itemCount: onlineCourses.length,
       itemBuilder: (BuildContext context, int index) {
         return OnlineCourseItem(onlineCourse: onlineCourses[index]);
       },

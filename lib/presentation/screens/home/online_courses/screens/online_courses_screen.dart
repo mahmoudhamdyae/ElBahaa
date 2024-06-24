@@ -1,3 +1,4 @@
+import 'package:elbahaa/domain/models/online_courses.dart';
 import 'package:elbahaa/presentation/resources/color_manager.dart';
 import 'package:elbahaa/presentation/screens/home/online_courses/controller/online_courses_controller.dart';
 import 'package:elbahaa/presentation/screens/home/online_courses/widgets/online_courses_list.dart';
@@ -55,7 +56,7 @@ class OnlineCoursesScreen extends StatelessWidget {
               } else if (controller.onlineCourses.isEmpty){
                 return const EmptyScreen(emptyString: AppStrings.noOnlineCourses);
               } else {
-                final onlineCourses = controller.onlineCourses;
+                List<OnlineCourses> onlineCourses = controller.onlineCourses;
                 return OnlineCoursesList(
                   onlineCourses: onlineCourses,
                 );
