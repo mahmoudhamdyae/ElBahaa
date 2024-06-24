@@ -386,6 +386,11 @@ class RemoteDataSourceImpl extends RemoteDataSource {
     await _checkNetwork();
 
     String url = "${Constants.baseUrl}online_courses/create/$userId";
-    await _dio.post(url);
+    await _dio.post(url, data: {
+      "date": date,
+      "time": time,
+      "minute": min,
+      "description": desc
+    });
   }
 }

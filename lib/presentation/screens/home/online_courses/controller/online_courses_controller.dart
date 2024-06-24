@@ -30,12 +30,12 @@ class OnlineCoursesController extends GetxController {
   }
 
   @override
-  void dispose() {
+  void onClose() {
     super.dispose();
-    date.clear();
-    time.clear();
-    minute.clear();
-    desc.clear();
+    date.dispose();
+    time.dispose();
+    minute.dispose();
+    desc.dispose();
   }
 
   void getOnlineCourses() {

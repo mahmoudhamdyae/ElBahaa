@@ -39,6 +39,8 @@ class _OrderOnlineCourseDialogState extends State<OrderOnlineCourseDialog>
           showError(context, controller.postStatus.errorMessage.toString(), () {});
         } else {
           Get.back();
+          Get.back();
+          Get.back();
           Get.find<OnlineCoursesController>().getOnlineCourses();
           Get.showSnackbar(
             const GetSnackBar(
@@ -99,7 +101,7 @@ class _OrderOnlineCourseDialogState extends State<OrderOnlineCourseDialog>
     if (newSelectedDate != null) {
       setState(() {
         _selectedDate.value = newSelectedDate;
-        Get.find<OnlineCoursesController>().date.text = '${_selectedDate.value.day}/${_selectedDate.value.month}/${_selectedDate.value.year}';
+        Get.find<OnlineCoursesController>().date.text = '${_selectedDate.value.year}/${_selectedDate.value.month}/${_selectedDate.value.day}';
       });
     }
   }
@@ -136,6 +138,9 @@ class _OrderOnlineCourseDialogState extends State<OrderOnlineCourseDialog>
                 onTap: () {
                   _restorableDatePickerRouteFuture.present();
                 },
+                onChanged: (String value) {
+                  Get.find<OnlineCoursesController>().date.text = value;
+                },
                 validator: (val) {
                   if (val == null || val.isEmpty) {
                     return AppStrings.dateInvalid;
@@ -158,6 +163,9 @@ class _OrderOnlineCourseDialogState extends State<OrderOnlineCourseDialog>
               // Time Edit Text
               TextFormField(
                 controller: Get.find<OnlineCoursesController>().time,
+                onChanged: (String value) {
+                  Get.find<OnlineCoursesController>().time.text = value;
+                },
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.text,
                 onTap: () => _selectTime(context),
@@ -183,6 +191,9 @@ class _OrderOnlineCourseDialogState extends State<OrderOnlineCourseDialog>
               // Minute Edit Text
               TextFormField(
                 controller: Get.find<OnlineCoursesController>().minute,
+                onChanged: (String value) {
+                  Get.find<OnlineCoursesController>().minute.text = value;
+                },
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.number,
                 validator: (val) {
@@ -207,6 +218,9 @@ class _OrderOnlineCourseDialogState extends State<OrderOnlineCourseDialog>
               // Desc Edit Text
               TextFormField(
                 controller: Get.find<OnlineCoursesController>().desc,
+                onChanged: (String value) {
+                  Get.find<OnlineCoursesController>().desc.text = value;
+                },
                 textInputAction: TextInputAction.done,
                 keyboardType: TextInputType.multiline,
                 validator: (val) {
