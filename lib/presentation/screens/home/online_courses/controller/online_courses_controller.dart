@@ -70,7 +70,7 @@ class OnlineCoursesController extends GetxController {
     _delStatus.value = RxStatus.loading();
     try {
       await _repository.cancelOrder(orderId).then((value) {
-      _delStatus.value = RxStatus.success();
+        _delStatus.value = RxStatus.success();
       });
     } on Exception catch (e) {
       _delStatus.value = RxStatus.error(e.toString());

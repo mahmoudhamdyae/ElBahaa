@@ -62,6 +62,10 @@ class AppStrings {
   static const String delAccountDialogTitle = 'حذف الحساب';
   static const String delAccountDialogText = 'هل أنت متأكد من حذف هذا الحساب؟';
   static const String delAccountOk = 'حذف الحساب';
+  // Cancel Order Dialog
+  static const String cancelOrderDialogTitle = 'تراجع';
+  static const String cancelOrderDialogText = 'هل تريد التراجع عن طلب المحاضرة؟';
+  static const String cancelOrderOk = 'تراجع';
 
   // Dialogs
   static const loading = 'جاري التحميل...';
@@ -268,4 +272,5 @@ class AppStrings {
   static const orderInProgress = 'فى انتظار الموافقة';
   static const orderRejected = 'تم رفض الطلب';
   static const orderAccepted = 'تم قبول الطلب';
+  static const cancelOrder = 'تراجع';
 }
