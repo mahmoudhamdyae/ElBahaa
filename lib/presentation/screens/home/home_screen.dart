@@ -6,7 +6,6 @@ import 'package:elbahaa/presentation/screens/home/widgets/home_app_bar/home_app_
 import 'package:elbahaa/presentation/screens/home/widgets/swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_utils/get_utils.dart';
 
 import '../../../domain/models/home_ui.dart';
 import '../../widgets/custom_grid_view.dart';

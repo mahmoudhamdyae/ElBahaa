@@ -1,5 +1,4 @@
 import 'package:elbahaa/presentation/resources/assets_manager.dart';
-import 'package:elbahaa/presentation/screens/fav/widgets/fav_screen.dart';
 import 'package:elbahaa/presentation/screens/me/widgets/me_screen.dart';
 import 'package:elbahaa/presentation/screens/subscription/widgets/subscription_screen.dart';
 import 'package:flutter/material.dart';
@@ -73,14 +72,6 @@ class _MainScreenState extends State<MainScreen> {
                 icon: SvgPicture.asset(ImageAssets.subscriptionSelected,),
                 title: null,
                 inactiveIcon: SvgPicture.asset(ImageAssets.subscription,)
-            ),
-          ),
-          PersistentTabConfig(
-            screen: const FavScreen(),
-            item: ItemConfig(
-                icon: SvgPicture.asset(ImageAssets.favSelected,),
-                title: null,
-                inactiveIcon: SvgPicture.asset(ImageAssets.fav,)
             ),
           ),
           PersistentTabConfig(

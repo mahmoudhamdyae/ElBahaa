@@ -27,24 +27,24 @@ class HomeUI {
         ImageAssets.home2, (String marhala, String term) =>
           Get.to(const PrintedNotesScreen(), arguments: { 'saff': marhala })
       ),
-      HomeUI(
-        AppStrings.courses,
-        ImageAssets.home3, (String marhala, String term) {
-          showSoonDialog(context);
-        }
-      ),
+      // HomeUI(
+      //   AppStrings.courses,
+      //   ImageAssets.home3, (String marhala, String term) {
+      //     showSoonDialog(context);
+      //   }
+      // ),
       HomeUI(
         AppStrings.onlineCourses,
         ImageAssets.home4, (String marhala, String term) {
         showSoonDialog(context);
         }
       ),
-      HomeUI(
-        AppStrings.teacher,
-        ImageAssets.home5, (String marhala, String term) async {
-        showSoonDialog(context);
-      }
-      ),
+      // HomeUI(
+      //   AppStrings.teacher,
+      //   ImageAssets.home5, (String marhala, String term) async {
+      //   showSoonDialog(context);
+      // }
+      // ),
       HomeUI(
         AppStrings.examsAndBanks,
         ImageAssets.home6, (String marhala, String term) =>
