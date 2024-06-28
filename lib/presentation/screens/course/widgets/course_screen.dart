@@ -12,10 +12,6 @@ import 'package:elbahaa/presentation/widgets/buyed_button.dart';
 import 'package:elbahaa/presentation/widgets/price_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:purchases_flutter/purchases_flutter.dart';
-
-import '../../../../core/constants.dart';
-import '../../../../core/launch_site.dart';
 
 class CourseScreen extends StatelessWidget {
 
