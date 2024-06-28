@@ -66,11 +66,20 @@ class CartNoteItem extends StatelessWidget {
               Column(
                 children: [
                   // Delete Button
-                  IconButton(
-                    onPressed: () => showDeleteCartNoteItemDialog(context, note, index),
-                    icon: const Icon(
-                      Icons.delete,
-                      color: ColorManager.error,
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: ColorManager.grey.withOpacity(0.2),
+                        width: 1,
+                      ),
+                      borderRadius: const BorderRadius.all(Radius.circular(16.0))
+                    ),
+                    child: IconButton(
+                      onPressed: () => showDeleteCartNoteItemDialog(context, note, index),
+                      icon: const Icon(
+                        Icons.delete,
+                        color: ColorManager.error,
+                      ),
                     ),
                   ),
                   Padding(
@@ -90,12 +99,12 @@ class CartNoteItem extends StatelessWidget {
           // الكمية
           Row(
             children: [
-              Expanded(child: Container()),
+              Expanded(flex: 1, child: Container()),
               Text(
                 AppStrings.quantity,
                 style: getLargeStyle(),
               ),
-              Expanded(child: Container()),
+              Expanded(flex: 2, child: Container()),
               SizedBox(
                 width: 110,
                 child: GetX<PrintedNotesController>(
@@ -117,7 +126,7 @@ class CartNoteItem extends StatelessWidget {
                               }, child: Text(
                             '-',
                             style: TextStyle(
-                              color: controller.count[index] != 1 ? ColorManager.black : ColorManager.grey,
+                              color: controller.count[index] != 1 ? ColorManager.black.withOpacity(0.5) : ColorManager.grey,
                               fontSize: 32,
                               fontWeight: FontWeight.w500,
                             ),

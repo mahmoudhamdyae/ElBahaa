@@ -26,7 +26,9 @@ class CartScreen extends StatelessWidget {
         shrinkWrap: true,
         physics: const ClampingScrollPhysics(),
         children: [
-          const TopBar(title: AppStrings.cart,),
+          const TopBar(
+            title: AppStrings.cart,
+          ),
           GetX<PrintedNotesController>(
             init: Get.find<PrintedNotesController>(),
             builder: (PrintedNotesController controller) {
@@ -36,13 +38,13 @@ class CartScreen extends StatelessWidget {
                 return const LoadingScreen();
               } else if (controller.status.isError) {
                 return ErrorScreen(error: controller.status.errorMessage ?? '');
-              } else if (controller.cartNotes.isEmpty && controller.cartPackages.isEmpty){
+              } else if (controller.cartNotes.isEmpty &&
+                  controller.cartPackages.isEmpty) {
                 return const EmptyCart(emptyString: AppStrings.noCart);
               }
-              return isWide(context) ?
-              _buildTwoColumn(context, controller, packages, notes)
-                  :
-              _buildOneColumn(context, controller, packages, notes);
+              return isWide(context)
+                  ? _buildTwoColumn(context, controller, packages, notes)
+                  : _buildOneColumn(context, controller, packages, notes);
             },
           )
         ],
@@ -50,7 +52,11 @@ class CartScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildOneColumn(BuildContext context, PrintedNotesController controller, List<Package> packages, List<Note> notes) {
+  Widget _buildOneColumn(
+      BuildContext context,
+      PrintedNotesController controller,
+      List<Package> packages,
+      List<Note> notes) {
     return ListView(
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
@@ -63,7 +69,11 @@ class CartScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildTwoColumn(BuildContext context, PrintedNotesController controller, List<Package> packages, List<Note> notes) {
+  Widget _buildTwoColumn(
+      BuildContext context,
+      PrintedNotesController controller,
+      List<Package> packages,
+      List<Note> notes) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -79,21 +89,26 @@ class CartScreen extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(width: 16.0,),
+        const SizedBox(
+          width: 16.0,
+        ),
         Expanded(
-            flex: 3,
-            child: _buildBooksAndPackages(controller, packages, notes),
+          flex: 3,
+          child: _buildBooksAndPackages(controller, packages, notes),
         ),
       ],
     );
   }
 
-  Widget _buildBooksAndPackages(PrintedNotesController controller, List<Package> packages, List<Note> notes) {
+  Widget _buildBooksAndPackages(PrintedNotesController controller,
+      List<Package> packages, List<Note> notes) {
     return ListView(
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
       children: [
-        controller.cartPackages.isEmpty ? Container() : _buildPackagesList(packages),
+        controller.cartPackages.isEmpty
+            ? Container()
+            : _buildPackagesList(packages),
         controller.cartNotes.isEmpty ? Container() : _buildNotesList(notes),
       ],
     );
@@ -101,81 +116,88 @@ class CartScreen extends StatelessWidget {
 
   Padding _buildBuyButton(BuildContext context) {
     return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: FilledButton(
-                    style: getFilledButtonStyle(),
-                    onPressed: () {
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                        return AlertDialog(
-                          backgroundColor: ColorManager.white,
-                          title: Text(
-                            AppStrings.orderDetails,
-                            style: getLargeStyle(),
-                          ),
-                          content: const FinishOrderScreen(),
-                        );
-                      });
-                    },
-                    child: const Text(AppStrings.finishOrder),
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+      child: FilledButton(
+        style: getFilledButtonStyle(),
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  backgroundColor: ColorManager.white,
+                  title: Text(
+                    AppStrings.orderDetails,
+                    style: getLargeStyle(),
                   ),
+                  content: const FinishOrderScreen(),
                 );
+              });
+        },
+        child: const Text(AppStrings.finishOrder),
+      ),
+    );
   }
 
   Padding _buildHeader(PrintedNotesController controller) {
     return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 64.0, vertical: 8.0),
-                  child: Column(
-                    children: [
-                      // الإجمالى
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            AppStrings.sum,
-                            style: getLargeStyle(),
-                          ),
-                          Text(
-                            '${controller.sum} د.ك',
-                            style: getSmallStyle(),
-                          ),
-                        ],
-                      ),
-                      // الخصم
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            AppStrings.discount,
-                            style: getLargeStyle(),
-                          ),
-                          Text(
-                            '- ${controller.discount} د.ك',
-                            style: getSmallStyle(),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8.0,),
-                      const Divider(height: 1, color: ColorManager.primaryTransparent,),
-                      const SizedBox(height: 8.0,),
-                      // المحموع الكلى
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            AppStrings.total,
-                            style: getLargeStyle(),
-                          ),
-                          Text(
-                            '${controller.totalSum} د.ك',
-                            style: getSmallStyle(),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                );
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      child: Column(
+        children: [
+          // الإجمالى
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                AppStrings.sum,
+                style: getLargeStyle(),
+              ),
+              Text(
+                '${controller.sum} د.ك',
+                style: getSmallStyle(),
+              ),
+            ],
+          ),
+          // الخصم
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                AppStrings.discount,
+                style: getLargeStyle(),
+              ),
+              Text(
+                '- ${controller.discount} د.ك',
+                style: getSmallStyle(),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 8.0,
+          ),
+          const Divider(
+            height: 1,
+            color: ColorManager.primaryTransparent,
+          ),
+          const SizedBox(
+            height: 8.0,
+          ),
+          // المحموع الكلى
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                AppStrings.total,
+                style: getLargeStyle(),
+              ),
+              Text(
+                '${controller.totalSum} د.ك',
+                style: getSmallStyle(),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _buildPackagesList(List<Package> packages) {
@@ -197,7 +219,6 @@ class CartScreen extends StatelessWidget {
             horizontal: 8.0,
             vertical: 8.0,
           ),
-
           itemBuilder: (BuildContext context, int index) {
             return CartPackageItem(package: packages[index], index: index);
           },
@@ -225,7 +246,6 @@ class CartScreen extends StatelessWidget {
             horizontal: 8.0,
             vertical: 8.0,
           ),
-
           itemBuilder: (BuildContext context, int index) {
             return CartNoteItem(note: notes[index], index: index);
           },
