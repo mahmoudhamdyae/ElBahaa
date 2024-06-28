@@ -35,6 +35,24 @@ class HomeScreen extends StatelessWidget {
             shrinkWrap: true,
             physics: const ClampingScrollPhysics(),
             children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      AppStrings.mainTitle,
+                      style: getLargeStyle(),
+                    ),
+                    const SizedBox(height: 8.0,),
+                    Text(
+                      AppStrings.mainDesc,
+                      textAlign: TextAlign.center,
+                      style: getSmallStyle(),
+                    ),
+                  ],
+                ),
+              ),
               CustomGridView(HomeUI.getItems(context)),
               // _buildPackagesAndTeachers(),
             ],
