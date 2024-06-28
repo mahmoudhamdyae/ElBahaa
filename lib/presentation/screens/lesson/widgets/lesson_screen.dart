@@ -62,10 +62,10 @@ class _LessonScreenState extends State<LessonScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
-                      top: 16.0,
+                      top: 24.0,
                       right: 16.0,
                       left: 16.0,
-                      bottom: 0.0,
+                      bottom: 24.0,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -85,20 +85,6 @@ class _LessonScreenState extends State<LessonScreen> {
                           ),
                         ),
                       ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 0.0,
-                      right: 16.0,
-                      left: 16.0,
-                      bottom: 16.0,
-                    ),
-                    child: Text(
-                      (Get.arguments['course'] as Course).teacher,
-                      style: getSmallStyle(
-                        color: const Color(0xff808080),
-                      ),
                     ),
                   ),
                   Expanded(

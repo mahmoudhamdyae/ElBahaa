@@ -20,6 +20,7 @@ class TabComments extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: ListView(
+        padding: const EdgeInsets.all(0.0),
         shrinkWrap: true,
         physics: const ClampingScrollPhysics(),
         children: [
@@ -27,6 +28,7 @@ class TabComments extends StatelessWidget {
           // true
               ?
           ListView(
+            padding: const EdgeInsets.all(0.0),
             shrinkWrap: true,
             physics: const ClampingScrollPhysics(),
             children: [

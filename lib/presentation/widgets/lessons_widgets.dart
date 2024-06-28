@@ -27,6 +27,7 @@ class _LessonsWidgetState extends State<LessonsWidget> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+        padding: EdgeInsets.zero,
         shrinkWrap: true,
         physics: const ClampingScrollPhysics(),
         itemCount: widget.wehdat.length,
@@ -83,6 +84,7 @@ class _LessonsWidgetState extends State<LessonsWidget> {
         ),
         expanded == index ?
         ListView.builder(
+          padding: EdgeInsets.zero,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: wehda.lessons.length,

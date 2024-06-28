@@ -28,6 +28,7 @@ class CommentsList extends StatelessWidget {
           );
         }
         return ListView.separated(
+          padding: const EdgeInsets.all(0.0),
           shrinkWrap: true,
           physics: const ClampingScrollPhysics(),
           itemCount: controller.comments.length,

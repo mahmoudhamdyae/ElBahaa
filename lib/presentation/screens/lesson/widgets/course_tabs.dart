@@ -23,6 +23,7 @@ class _CourseTabsState extends State<CourseTabs> {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: const EdgeInsets.all(0.0),
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
       children: [
@@ -125,6 +126,7 @@ class _CourseTabsState extends State<CourseTabs> {
             ),
           ],
         ),
+        const SizedBox(height: 16.0,),
         selectedTab == 0 ? TabCourseLessons() : selectedTab == 1 ?
         TabMorfaqat(link: widget.link,):
         TabComments(courseId: widget.courseId,),
