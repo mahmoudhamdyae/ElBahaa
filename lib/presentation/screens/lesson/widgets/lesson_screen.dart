@@ -10,7 +10,6 @@ import 'package:get/get.dart';
 
 import '../../../../domain/models/courses/course.dart';
 
-import '../../../resources/styles_manager.dart';
 import 'course_tabs.dart';
 
 class LessonScreen extends StatefulWidget {
@@ -45,10 +44,6 @@ class _LessonScreenState extends State<LessonScreen> {
           const SizedBox(
             height: 48,
           ),
-          const TopBar(title: 'title'),
-          const SizedBox(
-            height: 8.0,
-          ),
           GetX<LessonController>(
               init: Get.find<LessonController>(),
               builder: (LessonController controller) {
@@ -66,6 +61,10 @@ class _LessonScreenState extends State<LessonScreen> {
                   shrinkWrap: true,
                   physics: const ClampingScrollPhysics(),
                   children: [
+                    TopBar(title: controller.selectedLesson.value.name ?? ''),
+                    const SizedBox(
+                      height: 8.0,
+                    ),
                     // Vimeo Video
                     controller.selectedLesson.value.link == '' ||
                             controller.selectedLesson.value.link == null
@@ -80,33 +79,34 @@ class _LessonScreenState extends State<LessonScreen> {
                                     controller.selectedLesson.value.link ??
                                         '')),
                           ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 24.0,
-                        right: 16.0,
-                        left: 16.0,
-                        bottom: 24.0,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            (Get.arguments['course'] as Course).name,
-                            style: getLargeStyle(),
-                          ),
-                          SizedBox(
-                            width: 225,
-                            child: Text(
-                              controller.selectedLesson.value.name ?? '',
-                              style: getLargeStyle(),
-                              textAlign: TextAlign.end,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(
+                    //     top: 24.0,
+                    //     right: 16.0,
+                    //     left: 16.0,
+                    //     bottom: 24.0,
+                    //   ),
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //     children: [
+                    //       Text(
+                    //         (Get.arguments['course'] as Course).name,
+                    //         style: getLargeStyle(),
+                    //       ),
+                    //       SizedBox(
+                    //         width: 225,
+                    //         child: Text(
+                    //           controller.selectedLesson.value.name ?? '',
+                    //           style: getLargeStyle(),
+                    //           textAlign: TextAlign.end,
+                    //           maxLines: 2,
+                    //           overflow: TextOverflow.ellipsis,
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+                    const SizedBox(height: 24.0,),
                     Expanded(
                       child: CourseTabs(
                           link: controller.selectedLesson.value.pdf ?? '',
