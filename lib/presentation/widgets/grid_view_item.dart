@@ -61,7 +61,7 @@ class GridViewItem extends StatelessWidget {
                 _item.icon,
                 height: 140,
                 width: 200,
-                fit: BoxFit.fill,
+                fit: (_item.name == AppStrings.examsAndBanks) ? BoxFit.fill : BoxFit.fitWidth,
               ),
             ),
             const SizedBox(height: AppSize.s8,),

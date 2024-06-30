@@ -36,7 +36,7 @@ class ImageAssets {
   static const String baqaSilver = "$imagePath/baqaSilver.png";
   static const String baqaGolden = "$imagePath/baqa_golden.png";
   static const String baqaDiamond = "$imagePath/baqa_diamond.png";
-  static const String home1 = "$imagePath/home1.jpeg";
+  static const String home1 = "$imagePath/home1.png";
   static const String home2 = "$imagePath/home2.png";
   static const String home3 = "$imagePath/home3.jpg";
   static const String home4 = "$imagePath/home4.png";
