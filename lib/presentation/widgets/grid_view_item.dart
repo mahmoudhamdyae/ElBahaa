@@ -59,9 +59,9 @@ class GridViewItem extends StatelessWidget {
               ),
               child: Image.asset(
                 _item.icon,
-                height: 130,
+                height: 140,
                 width: 200,
-                fit: BoxFit.fitWidth,
+                fit: BoxFit.fill,
               ),
             ),
             const SizedBox(height: AppSize.s8,),

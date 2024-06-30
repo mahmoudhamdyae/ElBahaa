@@ -4,7 +4,8 @@ class AppStrings {
   static const madeBy = 'made by \u00a9 coding-site.com';
 
   static const mainTitle = 'منصة تعليمية في الفيزياء';
-  static const mainDesc = 'منصة تعليمية للفيزياء لمرحلتى الثانوية و الجامعة تقدم كورسات ومذكرات مما يؤدى إلى أعلى التقديرات تحت إشراف أ/ بهاء الدين منصور.';
+  static const mainDesc1 = 'منصة تعليمية للفيزياء لمرحلتى الثانوية و الجامعة تقدم كورسات ومذكرات مما يؤدى إلى أعلى التقديرات';
+  static const mainDesc2 = 'تحت إشراف أ/ بهاء الدين منصور';
 
   // Authentication
   static const notStudent = "هذا الحساب غير مصرح له الدخول من هذا التطبيق";

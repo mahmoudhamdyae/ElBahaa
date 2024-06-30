@@ -1,4 +1,6 @@
 import 'package:elbahaa/domain/models/slider.dart';
+import 'package:elbahaa/presentation/resources/assets_manager.dart';
+import 'package:elbahaa/presentation/resources/color_manager.dart';
 import 'package:elbahaa/presentation/resources/strings_manager.dart';
 import 'package:elbahaa/presentation/resources/styles_manager.dart';
 import 'package:elbahaa/presentation/screens/home/controller/home_controller.dart';
@@ -36,19 +38,66 @@ class HomeScreen extends StatelessWidget {
             physics: const ClampingScrollPhysics(),
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Stack(
                   children: [
-                    Text(
-                      AppStrings.mainTitle,
-                      style: getLargeStyle(),
+                    Image.asset(
+                      ImageAssets.youngManBackground,
+                      height: MediaQuery.of(context).size.height * 0.24,
+                      width: MediaQuery.of(context).size.width,
+                      fit: BoxFit.fill,
                     ),
-                    const SizedBox(height: 8.0,),
-                    Text(
-                      AppStrings.mainDesc,
-                      textAlign: TextAlign.center,
-                      style: getSmallStyle(),
+                    Positioned(
+                      left: -80,
+                      top: 0,
+                      bottom: 0,
+                      child: Image.asset(
+                        ImageAssets.youngMan,
+                        width: MediaQuery.of(context).size.width * 0.8,
+                      ),
+                    ),
+                    Positioned(
+                      right: 16.0,
+                      top: 16.0,
+                      child: Text(
+                        AppStrings.mainTitle,
+                        textAlign: TextAlign.center,
+                        style: getLargeStyle(
+                          color: ColorManager.secondary,
+                          fontSize: 24
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 0,
+                      bottom: -32,
+                      right: 16,
+                      child: Center(
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.55,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                AppStrings.mainDesc1,
+                                textAlign: TextAlign.start,
+                                style: getSmallStyle(
+                                    fontSize: 16,
+                                ),
+                              ),
+                              const SizedBox(height: 24.0,),
+                              Text(
+                                AppStrings.mainDesc2,
+                                textAlign: TextAlign.start,
+                                style: getSmallStyle(
+                                    fontSize: 18,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
