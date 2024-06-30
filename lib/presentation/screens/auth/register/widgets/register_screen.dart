@@ -17,7 +17,7 @@ import '../../../main_screen.dart';
 import '../../../subscription/controller/subscription_controller.dart';
 
 class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
+  const RegisterScreen({super.key});
 
   @override
   State<RegisterScreen> createState() => _RegisterViewState();
@@ -288,7 +288,9 @@ class _RegisterViewState extends State<RegisterScreen> {
                         width: double.infinity,
                         height: AppSize.s40,
                         child: FilledButton(
-                          style: getFilledButtonStyle(),
+                          style: getFilledButtonStyle(
+                            color: ColorManager.secondary
+                          ),
                           onPressed: () async {
                             await _signUp();
                           },
@@ -330,14 +332,16 @@ class _RegisterViewState extends State<RegisterScreen> {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          style: getOutlinedButtonStyle(),
+                          style: getOutlinedButtonStyle(
+                            color: ColorManager.secondary
+                          ),
                           onPressed: () {
                             Get.to(const MainScreen(selectedIndex: 0,));
                           },
                           child: Text(
                             AppStrings.loginAsAGuestButton,
                             style: getSmallStyle(
-                                color: ColorManager.primary
+                                color: ColorManager.secondary
                             ),
                           ),
                         ),
