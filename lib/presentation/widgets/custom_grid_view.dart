@@ -15,14 +15,17 @@ class CustomGridView extends StatelessWidget {
     return GridView.count(
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
-      padding: const EdgeInsets.symmetric(horizontal: AppPadding.p12, vertical: 18),
-      crossAxisCount: isWide(context) ? 3 : 2,//(MediaQuery.of(context).size.width ~/ 160).toInt(),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 18),
+      crossAxisCount: isWide(context) ? 4 : 2,//(MediaQuery.of(context).size.width ~/ 160).toInt(),
       crossAxisSpacing: 15,
       mainAxisSpacing: 15,
-      childAspectRatio: 0.95,
-      children: List.generate(_items.length, (index) {
-        return GridViewItem(item: _items[index],);
-      }),
+      childAspectRatio: (MediaQuery.of(context).size.width / 2) / (MediaQuery.of(context).size.height / 4),
+      children: [
+        GridViewItem(item: _items[0]),
+        GridViewItem(item: _items[1]),
+        GridViewItem(item: _items[2]),
+        GridViewItem(item: _items[3]),
+      ],
     );
   }
 }

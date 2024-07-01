@@ -5,6 +5,7 @@ import 'package:elbahaa/presentation/screens/home/online_courses/screens/online_
 import 'package:elbahaa/presentation/widgets/dialogs/choose_marhala_dialog.dart';
 import 'package:elbahaa/presentation/widgets/dialogs/choose_term_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../domain/models/home_ui.dart';
@@ -59,16 +60,19 @@ class GridViewItem extends StatelessWidget {
               ),
               child: Image.asset(
                 _item.icon,
-                height: 140,
+                height: 115.h,
                 width: 200,
                 fit: (_item.name == AppStrings.examsAndBanks) ? BoxFit.fill : BoxFit.fitWidth,
               ),
             ),
-            const SizedBox(height: AppSize.s8,),
+            SizedBox(height: 4.h,),
             Text(
               _item.name,
               textAlign: TextAlign.center,
-              style: getLargeStyle(color: ColorManager.white),
+              style: getLargeStyle(
+                  color: ColorManager.white,
+                  fontSize: 16.sp
+              ),
             ),
           ],
         ),

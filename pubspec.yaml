@@ -61,6 +61,7 @@ dependencies:
   package_info_plus: ^8.0.0
   purchases_flutter: ^6.23.0
   rate_my_app: ^2.0.0
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   flutter_test:
